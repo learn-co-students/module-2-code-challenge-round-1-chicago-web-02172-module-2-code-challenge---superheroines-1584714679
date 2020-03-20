@@ -1,0 +1,26 @@
+<h1>Create a Heroine</h1>
+<%= form_for @heroine, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+    <% if @heroine.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@heroine.errors.count, "error") %>
+            prohibits this heroine from being saved</h2>
+            <ul>
+                <% @heroine.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <%= f.label "Name:" %>
+    <%= f.text_field :name %><br>
+
+    <%= f.label "Super Name:" %>
+    <%= f.text_field :super_name %><br>
+
+    <%= f.label "Power:"%>
+    <%= f.fields_for :heroine_powers do |fhp| %>
+            <%= fhp.collection_select(:power_id, Power.all, "id", "name") %><br>
+    <% end %>
+
+    <%= f.submit%>
+<% end %>
