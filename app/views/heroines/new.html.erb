@@ -1,0 +1,20 @@
+<h1> Create a new Heroine </h1>
+
+<% if @heroine.errors.any? %>
+    <%= "Could not submit Heroine for the following reasons" %>
+    <ul>
+    <% @heroine.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+<%= form_for @heroine do |f| %>
+<label>Heroine Name: </label>
+<%= f.text_area :name %><br>
+<label>Super Name: </label>
+<%= f.text_area :super_name %><br>
+<label>Select a power</label>
+<%= f.collection_select :powers, Power.all, :id, :name %>
+<%= f.submit %>
+<% end %>

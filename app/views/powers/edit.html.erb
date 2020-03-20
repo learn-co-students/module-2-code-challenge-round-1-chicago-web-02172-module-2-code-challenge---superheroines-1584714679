@@ -1,0 +1,9 @@
+<%= form_for @power do |f| %>
+    <label>Power Name: </label>
+    <%= f.text_area :name %><br>
+    <label>Power Description: </label>
+    <%= f.text_area :description %><br>
+    <label>Select a heroine</label>
+    <%= f.collection_check_boxes :heroine_ids, Heroine.all, :id, :super_name %>
+    <%= f.submit %>
+    <% end %>
