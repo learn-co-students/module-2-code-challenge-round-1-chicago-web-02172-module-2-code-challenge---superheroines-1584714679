@@ -3,10 +3,18 @@
 <ul>
   <% @powers.each do |power| %>
     <li>
-      <%= power.name %>
+      <%= link_to power.titleized_name, power_path(power) %>
       <br>
       Description: <%= power.description %>
+      <br>
+      <% if power.total_heroines == 1 %>
+          <%= power.total_heroines %> heroine has this power
+        <% else %>
+          <%= power.total_heroines %> heroines have this power
+      <% end %>
     </li>
     <br>
   <% end %>
 </ul>
+
+<%= link_to "View Heroines", heroines_path %>

@@ -1,0 +1,25 @@
+<h1>Create A Heroine</h1>
+
+<% if @errors %>
+    <h4>Errors:</h4>
+    <ul>
+    <% @errors.each do |error| %>
+        <li><%= error %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+<%= form_for @heroine do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :super_name %>
+    <%= f.text_field :super_name %>
+    <br>
+    <%= f.label :power_ids, "Select A Power:" %>
+    <%= f.collection_select :power_ids, @powers, :id, :titleized_name %>
+    <br>
+    <%= f.submit %>
+<% end %>
+
+<%= link_to "Back", heroines_path %>
