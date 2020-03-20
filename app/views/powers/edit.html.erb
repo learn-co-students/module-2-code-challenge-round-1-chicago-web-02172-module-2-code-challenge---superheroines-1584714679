@@ -1,0 +1,30 @@
+<h1>Edit Power</h1>
+<%= form_for @power, url: {action: "edit"}, html: {class: "nifty_form"} do |f| %>
+    <% if @power.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@power.errors.count, "error") %>
+            prohibits this power from being updated</h2>
+            <ul>
+                <% @power.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <%= f.label "Name:" %>
+    <%= f.text_field :name %><br>
+
+    <%= f.label "Description:" %>
+    <%= f.text_area :description %><br>
+
+    <%# <%= f.label "Heroines:"%> 
+    <%# <ul> %>
+    <%# <%= f.collection_check_boxes(:heroine_power, :heroine_ids, Heroine.all, :id, :'heroine[:super_name]') do |fhp| %> 
+        <%# <li> %>
+            <%# <%= fhp.label { fhp.check_box } %> 
+        <%# </li> %>
+    <%# <% end %> 
+    <%# </ul> %>
+
+    <%= f.submit%>
+<% end %>
