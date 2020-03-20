@@ -23,8 +23,13 @@ class PowersController < ApplicationController
     heroine_ids.shift  # Throw away the extra empty string
     heroine_ids = heroine_ids.map { |id_number| id_number.to_i }  # Convert strings to integers
 
-    # Find each heroine by ID, and add to the power's list of heroines
-    heroine_ids.each { |heroine_id| @power.heroines << Heroine.find(heroine_id) }
+    # Find each heroine by ID, and add to the power's list of heroines (if not already linked)
+    heroine_ids.each do |heroine_id| 
+      heroine = Heroine.find(heroine_id)
+      unless @power.heroines.include? heroine
+        @power.heroines << heroine 
+      end
+    end
     
     if @power.save
       redirect_to power_path(@power)
