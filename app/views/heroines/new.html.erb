@@ -1,0 +1,13 @@
+<h1>New Hero Submission Form:</h1>
+
+<% @heroine.errors.full_messages.each do |error| %>
+    <p><%= error %></p>
+<% end %>
+
+<%= form_for(@heroine) do |f| %>
+    <label>Hero Super Name: </label><%= f.text_field :super_name %><br>
+    <label>Identity: </label><%= f.text_field :name %><br>
+    <label>Super Power: </label><%= f.collection_select :power_id, @powers, :id, :name %><br>
+
+    <%= f.submit %>
+<% end %>
