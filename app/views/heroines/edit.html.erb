@@ -1,0 +1,9 @@
+<h1><%= "Edit Information For '#{@heroine.name}'" %></h1>
+
+<%= form_for @heroine do |f| %>
+    <%= f.label 'Hero Super Name: ' %><%= f.text_field :super_name %><br>
+    <%= f.label 'Identity: ' %><%= f.text_field :name %><br>
+
+    <%= f.submit 'Submit Changes' %>
+<% end %>
+

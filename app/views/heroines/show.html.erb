@@ -1,0 +1,16 @@
+<h1><%= "#{@heroine.super_name}:" %></h1>
+
+<h3><%= "Identity: #{@heroine.name}" %></h3>
+<br>
+
+<h2>Super Powers:</h2>
+<ul>
+    <% @heroine.powers.each do |power| %>
+        <li><%= link_to power.name, power_path(power) %></li>
+    <% end %>        
+</ul>
+<br>
+
+<%= link_to 'Edit Heroine', edit_heroine_path(@heroine) %><br>
+<%= button_to "Eliminate Heroine", heroine_path(@heroine), {method: :destroy, data: { confirm: "Have you gone mad Sir?" } } %><br>
+<%= link_to "Back To Super Heros", heroines_path %><br>

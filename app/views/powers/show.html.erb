@@ -1,0 +1,14 @@
+<h1><%= "#{@power.name.titleize}:" %></h1>
+
+<h3><%= "Description: #{@power.description}" %></h3>
+<br>
+
+<h2>Heros That Utalize This Power:</h2>
+<ul>
+    <li>List Hero Here</li>
+</ul>
+<br>
+
+<%= link_to 'Edit Power', edit_power_path(@power) %><br>
+<%= button_to "Delete Power", power_path(@power), {method: :destroy, data: { confirm: "Sure, go ahead and watch the world burn..." } } %><br>
+<%= link_to "Back To Powers", powers_path %><br>
