@@ -1,0 +1,12 @@
+<h2>Power</h2>
+
+<p>Name: <%= @power.name %></p>
+<p>Description: <%= @power.description %></p>
+<p>Heroines:</p>
+<ul>
+<% @power.heroines.each do |heroine| %>
+    <li><%= link_to heroine.super_name, heroine_path(heroine) %></li>
+<% end %>
+</ul>
+
+<%= button_to "Edit", edit_power_path(@power), method: :get %>

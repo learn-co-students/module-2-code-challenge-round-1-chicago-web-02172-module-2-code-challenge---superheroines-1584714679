@@ -1,0 +1,24 @@
+<h2>Edit Power</h2>
+
+<ul>
+<% @power.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+<% end %>
+</ul>
+
+<%= form_for @power do |f| %>
+
+    <%= f.label :name, 'Name: ' %>
+    <%= f.text_field :name %><br>
+
+    <%= f.label :description, 'Description: ' %>
+    <%= f.text_area :description %><br>
+
+    <label>Heroines:</label>
+    <%= f.collection_check_boxes :heroine_ids, @heroines, :id, :super_name %><br>
+
+    <br>
+
+    <%= f.submit %>
+
+<% end %>
