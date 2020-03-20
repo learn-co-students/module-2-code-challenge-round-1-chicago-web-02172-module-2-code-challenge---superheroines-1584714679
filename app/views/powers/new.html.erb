@@ -1,0 +1,13 @@
+<h1>Make a New Power!</h1>
+<ul>
+<% @power.errors.full_messages.each do |mess| %>
+    <li><%= mess %></li>
+<% end %>
+</ul>
+
+<%= form_for @power do |f| %>
+    Name: <%= f.text_field :name %><br>
+    Description: <%= f.text_area :description %><br>
+    <!-- Heroine: <%#= f.collection_select :heroine_id, @heroines, :id, :name %> -->
+    <%= f.submit %>
+<% end %>

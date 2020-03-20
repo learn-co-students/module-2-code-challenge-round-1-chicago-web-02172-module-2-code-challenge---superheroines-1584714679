@@ -1,0 +1,13 @@
+<h1>Edit <%= @heroine.name.titleize %></h1>
+<ul>
+<% @heroine.errors.full_messages.each do |mess| %>
+    <li><%= mess %></li>
+<% end %>
+</ul>
+
+<%= form_for @heroine do |f| %>
+    Name: <%= f.text_field :name %><br>
+    Super Name: <%= f.text_field :super_name %><br>
+    <!-- Power: <%#= f.collection_select :power_id, @powers, :id, :name %> -->
+    <%= f.submit %>
+<% end %>

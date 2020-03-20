@@ -1,0 +1,11 @@
+<h1>Name: <%= @heroine.name %></h1>
+<h1>Super Name: <%= @heroine.super_name %></h1>
+<h2><%= @heroine.powers.count > 0 ? "Powers:" : "" %></h2>
+<ul>
+<% @heroine.powers.each do |pow| %>
+    <li><%= link_to pow.name, power_path(pow) %></li>
+<% end %>
+</ul>
+
+<h2><%= link_to "Edit Heroine", edit_heroine_path %></h2>
+<h2><%= link_to "Back", heroines_path %></h2>
