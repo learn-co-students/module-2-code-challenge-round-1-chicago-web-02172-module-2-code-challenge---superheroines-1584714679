@@ -2,3 +2,5 @@
 
 <p>Name: <%= @power.name %></p>
 <p>Description: <%= @power.description %></p>
+
+<%= button_to "Edit", edit_power_path(@power), method: :get %>
