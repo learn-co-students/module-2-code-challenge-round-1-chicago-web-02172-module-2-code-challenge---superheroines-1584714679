@@ -1,0 +1,16 @@
+<h1>Edit Power</h1>
+
+<%= form_for @power do |f| %>
+    <%= f.label :name, "Name:" %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :description, "Description:" %>
+    <%= f.text_area :description %>
+    <br>
+    <%= f.label :heroine_ids, "Heroines:" %>
+    <%= f.collection_check_boxes :heroine_ids, @heroines, :id, :super_name %>
+    <br>
+    <%= f.submit %>
+<% end %>
+
+<%= link_to "Back", power_path(@power) %>
